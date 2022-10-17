@@ -11,6 +11,7 @@ import {
   ListsIcon,
   BookmarksIcon,
 } from "../icon/Icon";
+import SideLink from "../components/SideLink";
 const sideLinks = [
   {
     name: "Home",
@@ -50,13 +51,14 @@ const Siderbar = () => {
   return (
     <div className="flex flex-col justify-between w-72 px-2">
       <div>
-        <div className="mt-1  mb-4 ml-l flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-lightest transform transition-colors duration-200">
+        <div className="flex items-center justify-center w-12 h-12 rounded-full hover:bg-gray-lightest transform transition-colors duration-200 mt-1  mb-4 ml-l ">
           <img src={twitterIcon} alt="Twitter Logo" className="w-9 h-9"></img>
         </div>
         <nav className="mb-4">
           <ul>
-            <li>Home</li>
-            <li>Explore</li>
+            {sideLinks.map(({ name, icon }) => (
+              <SideLink key={name} name={name} Icon={icon} />
+            ))}
           </ul>
         </nav>
         <nav>
